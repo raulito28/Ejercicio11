@@ -1,13 +1,24 @@
 import bubble_sort as DC
-lista = []
 while True:
+    lista = []
+    fin = False
     while True:
-        try:
-            e = int(input("Introducir elemento de lista a ordenar: "))
+        while True:
+            e = input("Introducir elemento de lista a ordenar: ")
+            if e == "fin":
+                fin = True
+                break
+            try:
+                e = int(e)
+                break
+            except:
+                print("El dato introducido no es un número que sea válido")
+        if fin:
             break
-        except:
-            print("El dato introducido no es un número que sea válido")
-
-    if (e == -9999):
+        if (e == -9999):
+            break
+        lista.append(e)
+    if fin:
         break
-    lista.append(e)
+    lo = DC.BubbleSort(lista)
+    print("Lista ordenada: ", lo.sorted_list)
